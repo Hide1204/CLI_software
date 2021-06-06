@@ -4,7 +4,7 @@ import java.util.Random;
 public class Model {
     private final static int WIDTH = 80;
     private final static int HEIGHT = 24;
-    private final static int BULLETCOUNT = 20;
+    private final static int BULLETCOUNT = 00;
     private final static Random random = new Random();
     private ConsoleView view;
     private LinkedList<Bullet> bullets;

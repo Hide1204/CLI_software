@@ -69,9 +69,19 @@ public class ConsoleView {
             put(c,x-(int)Math.round(x_1),y+i);
         }
     }
+    public void MakeMap(){
+        drawRect('_', 15, 23, 30, 1);
+        drawRect('_', 10, 19, 10, 1);
+        drawRect('_', 40, 19, 10, 1);
+        drawRect('_', 20, 15, 20, 1);
+        drawRect('_', 10, 11, 10, 1);
+        drawRect('_', 40, 11, 10, 1);
+        drawRect('_', 20, 07, 20, 1);
+    }
     public void update(){
         // 画面クリア
         clear();
+        MakeMap();
         LinkedList<Bullet> bullets = model.getBullets();
         for(Bullet b:bullets){
             b.paint(this);
@@ -83,11 +93,8 @@ public class ConsoleView {
         model.run();
         ConsoleView view = new ConsoleView(model,80, 24);
         view.clear();
-        view.drawRect('*', 2, 3, 8, 4);
-        view.drawRect('@', 4, 10, 16, 8);
-        view.drawRect('/', 8, 12, 20, 10);
-        view.drawFramedString(" HELLO,WORLD!! ",'!', 20, 8);
-        view.drawOval('*', 60, 10, 10, 5);
+        view.MakeMap();
         view.paint();
     }
 }
+
