@@ -8,14 +8,16 @@ public class Model {
     private final static Random random = new Random();
     private ConsoleView view;
     private LinkedList<Bullet> bullets;
+    private PlayerCharacter player;
     public Model() {
         view = new ConsoleView(this, WIDTH, HEIGHT);
         bullets = new LinkedList<Bullet>();
         for(int i=0;i<BULLETCOUNT;i++){
             bullets.add(makeBullet());
         }
+        player = new PlayerCharacter(30,22);
     }
-    public Bullet makeBullet(){
+    public Bullet makeBullet(char c){
         int x = random.nextInt(WIDTH);
         int y = random.nextInt(HEIGHT);
         int dx = random.nextInt(2)+1;
@@ -26,7 +28,7 @@ public class Model {
         if(random.nextInt(2)==0){
             dy*=-1;
         }
-        return new Bullet(x, y, dx, dy);
+        return new Bullet(c,x, y, dx, dy);
     }
     public void run()throws Exception{
         while (true){
@@ -49,6 +51,9 @@ public class Model {
     }
     public LinkedList<Bullet> getBullets(){
         return bullets;
+    }
+    public PlayerCharacter getplayer(){
+        return player;
     }
     public static void main(String[] args) throws Exception{
         Model model = new Model();

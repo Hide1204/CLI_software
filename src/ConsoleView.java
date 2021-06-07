@@ -86,6 +86,8 @@ public class ConsoleView {
         for(Bullet b:bullets){
             b.paint(this);
         }
+        PlayerCharacter player = model.getplayer();
+        player.paint(this);
         paint();
     }
     public static void main(String[] args) throws Exception {
@@ -93,7 +95,6 @@ public class ConsoleView {
         model.run();
         ConsoleView view = new ConsoleView(model,80, 24);
         view.clear();
-        view.MakeMap();
         view.paint();
     }
 }
