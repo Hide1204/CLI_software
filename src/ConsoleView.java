@@ -70,18 +70,24 @@ public class ConsoleView {
         }
     }
     public void MakeMap(){
-        drawRect('_', 15, 23, 30, 1);
-        drawRect('_', 10, 19, 10, 1);
-        drawRect('_', 40, 19, 10, 1);
-        drawRect('_', 20, 15, 20, 1);
-        drawRect('_', 10, 11, 10, 1);
-        drawRect('_', 40, 11, 10, 1);
-        drawRect('_', 20, 07, 20, 1);
+        drawRect('_', 15, 22, 30, 1);
+        drawRect('_', 10, 18, 10, 1);
+        drawRect('_', 40, 18, 10, 1);
+        drawRect('_', 20, 14, 20, 1);
+        drawRect('_', 10, 10, 10, 1);
+        drawRect('_', 40, 10, 10, 1);
+        drawRect('_', 20, 06, 20, 1);
+    }
+    public void reset(){
+        clear();
+        MakeMap();
+    }
+    public char get_c(int x,int y){
+        return screen[x][y];
     }
     public void update(){
         // 画面クリア
-        clear();
-        MakeMap();
+        reset();
         LinkedList<Bullet> bullets = model.getBullets();
         for(Bullet b:bullets){
             b.paint(this);
